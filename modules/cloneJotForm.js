@@ -12,6 +12,7 @@ async function handleCloneJotFormSurvey(request, response) {
 
         const newSurveyData = {
             surveyID: result.data.content.id,
+            
             createdOn: String(new Date()).split(' ').splice(1, 3).join('-'),
             submissionCount: 0,
             results: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

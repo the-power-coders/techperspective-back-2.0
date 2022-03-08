@@ -10,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 const handleGetSurveyResults = require('./modules/getSurveyResults');
+const handleGetSurveyIds = require('./modules/getSurveyIds');
 const handlePostSurveyResults = require('./modules/postSurveyResults');
 const handleDeleteSurveyResults = require('./modules/deleteSurveyResults');
 const handleGetUser = require('./modules/getUser');
@@ -30,11 +31,13 @@ app.get("/test", (req, res) => {
   response.send("test request received");
 });
 app.get("/survey", handleGetSurveyResults);
+app.get("/surveyId", handleGetSurveyIds);
 app.post("/survey", handlePostSurveyResults);
 app.delete("/survey/:id", handleDeleteSurveyResults);
 app.get("/user", handleGetUser);
 app.get("/jotform", handleGetJotFormSurvey);
 app.post("/jotform", handleCloneJotFormSurvey);
 app.get('/active', handleGetActiveSurvey);
+
 
 app.listen(PORT, () => console.log("server is listening to port ", PORT));

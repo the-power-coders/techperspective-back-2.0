@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 const handleGetSurveyResults = require('./modules/getSurveyResults');
-const handleGetSurveyIds = require('./modules/getSurveyIds');
+const handleGetSurveyIds = require('./modules/getSurveyIds'); //TODO: add subdomain authorization
 const handlePostSurveyResults = require('./modules/postSurveyResults');
 const handleDeleteSurveyResults = require('./modules/deleteSurveyResults');
 const handleGetUser = require('./modules/getUser');

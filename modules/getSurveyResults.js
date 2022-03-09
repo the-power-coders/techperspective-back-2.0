@@ -10,7 +10,7 @@ async function handleGetSurveyResults(req, res) {
         res.send("Invalid Token");
     } else {
         try {
-        const answersFromSurveys = await Survey.find({ active: false });
+        const answersFromSurveys = await Survey.find({ active: false, subDomain : req.query.subDomain });
         if (answersFromSurveys) {
             answersFromSurveys.sort((a, b) => {
             if (a.createdOn < b.createdOn) return 1;

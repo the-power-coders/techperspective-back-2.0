@@ -5,7 +5,8 @@ const Survey = require('./SurveyModel');
 
 async function handleCloneJotFormSurvey(request, response) {
     try {
-        const templateFormID = 213535497610053; //ryan's form
+        // const currentSurvey = 
+        const templateFormID = request.query.surveyID; //ryan's form
         const url = `https://api.jotform.com/form/${templateFormID}/clone?apiKey=${process.env.JOTFORM_API}`;
 
         const result = await axios.post(url);

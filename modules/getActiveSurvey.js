@@ -39,6 +39,8 @@ async function handleGetActiveSurvey(req, res) {
 
             const surveyData = {
                 _id: activeSurvey._id,
+                surveyName: activeSurvey.surveyName,
+                subDomain: activeSurvey.subDomain,
                 surveyID: result.data.content[0].form_id, // 213494408669063 url can be built in front end
                 createdOn: result.data.content[0].created_at.split(' ')[0], //date survey was created
                 submissionCount: result.data.resultSet.count, // count of total survey submissions
@@ -52,6 +54,8 @@ async function handleGetActiveSurvey(req, res) {
             const surveyData = {
                 _id: activeSurvey._id,
                 surveyID: activeSurvey.surveyID,
+                surveyName: activeSurvey.surveyName,
+                subDomain: activeSurvey.subDomain,
                 createdOn: String(new Date()).split(' ').splice(1, 3).join('-'),
                 submissionCount: 0,
                 results: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]

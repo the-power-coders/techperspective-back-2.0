@@ -7,6 +7,7 @@ const { Schema } = mongoose;
 
 const surveySchema = new Schema({
   surveyID: String,
+  surveyName: String,
   createdOn: String,
   submissionCount: Number,
   results: [Number],

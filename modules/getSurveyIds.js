@@ -21,6 +21,7 @@ class SurveyId {
     this.surveyName = survey.surveyName;
     this.surveyID = survey.surveyID;
     this.notes = survey.notes;
+    this.subDomain = survey.subDomain;
   }
 }
 

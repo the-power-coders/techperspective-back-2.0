@@ -8,9 +8,10 @@ const Survey = require('./modules/SurveyModel.js');
 async function seed() {
     mongoose.connect(process.env.MONGO_DB);
 
+    
     await Survey.create ({
-        surveyID: '000005',
-        surveyName: 'survey1',
+        surveyID: '220677263487061',
+        surveyName: 'survey 1',
         createdOn: '2021-12-21 12:50:47',
         submissionCount: 9,
         results: [0, 0, 0, 0, 1, 2, 0, 0, 3, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],

@@ -12,7 +12,8 @@ async function postSurvey (request, response, next) {
         submissionCount: 0,
         results: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         active: false,
-        subDomain: request.query.subDomain
+        subDomain: request.query.subDomain,
+        notes: request.query.notes
     })
     response.status(200).send(createdSurvey);
   } catch (error) {

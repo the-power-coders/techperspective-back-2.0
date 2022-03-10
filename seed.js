@@ -16,7 +16,8 @@ async function seed() {
         submissionCount: 9,
         results: [0, 0, 0, 0, 1, 2, 0, 0, 3, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
         active: false,
-        subDomain: '@gmail.com'
+        subDomain: '@gmail.com',
+        notes: "this is note 1"
     })
     await Survey.create ({
         surveyID: '000004',
@@ -25,7 +26,8 @@ async function seed() {
         submissionCount: 12,
         results: [0, 0, 0, 0, 1, 2, 0, 2, 3, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
         active: false,
-        subDomain: '@gmail.com'
+        subDomain: '@gmail.com',
+        notes: "this is note 1"
     })
     await Survey.create ({
         surveyID: '000003',
@@ -34,7 +36,8 @@ async function seed() {
         submissionCount: 15,
         results: [0, 0, 0, 0, 1, 2, 0, 0, 6, 2, 3, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
         active: false,
-        subDomain: '@codefellows.com'
+        subDomain: '@codefellows.com',
+        notes: "this is note 1"
     })
     await Survey.create ({
         surveyID: '000002',
@@ -43,7 +46,8 @@ async function seed() {
         submissionCount: 9,
         results: [1, 0, 0, 0, 0, 2, 0, 0, 3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
         active: false,
-        subDomain: '@codefellows.com'
+        subDomain: '@codefellows.com',
+        notes: "this is note 1"
     })
     await Survey.create ({
         surveyID: '000001',
@@ -52,7 +56,8 @@ async function seed() {
         submissionCount: 5,
         results: [0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         active: false,
-        subDomain: '@codefellows.com'
+        subDomain: '@codefellows.com',
+        notes: "this is note 1"
     })
 
     mongoose.disconnect();

@@ -12,7 +12,8 @@ const surveySchema = new Schema({
   submissionCount: Number,
   results: [Number],
   active: Boolean,
-  subDomain: String
+  subDomain: String,
+  notes: String
 });
 
 const Survey = mongoose.model("Survey", surveySchema);

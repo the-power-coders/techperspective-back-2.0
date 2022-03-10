@@ -18,6 +18,7 @@ const handleGetJotFormSurvey = require('./modules/getJotForm');
 const handleCloneJotFormSurvey = require('./modules/cloneJotForm');
 const handleGetActiveSurvey = require('./modules/getActiveSurvey');
 const handleCreateNewSurvey = require('./modules/createNewSurvey');
+const handleUpdateSurvey = require('./modules/updateSurvey');
 
 const PORT = process.env.PORT || 3001;
 
@@ -40,6 +41,6 @@ app.get("/jotform", handleGetJotFormSurvey);
 app.post("/jotform", handleCloneJotFormSurvey);
 app.get('/active', handleGetActiveSurvey);
 app.post("/survey/create", handleCreateNewSurvey);
-
+app.put('/survey/:id', handleUpdateSurvey);
 
 app.listen(PORT, () => console.log("server is listening to port ", PORT));

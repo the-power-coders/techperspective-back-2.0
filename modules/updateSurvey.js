@@ -2,7 +2,7 @@
 const Survey = require('./SurveyModel');
 
 async function handleUpdateSurvey (request, response, next) {
-  console.log("console log from handleupdate survey", request);
+  console.log("console log from handleupdate survey", request.body, request.params.id);
   try {
     let id = request.params.id;
     
@@ -11,6 +11,7 @@ async function handleUpdateSurvey (request, response, next) {
       new: true,
       overwrite: true
     })
+    console.log("update survey after await", updateSurvey);
     response.status(200).send(updateSurvey)
   }catch(error){
     next(error);

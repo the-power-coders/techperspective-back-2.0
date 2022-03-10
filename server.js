@@ -17,27 +17,30 @@ const handleGetUser = require('./modules/getUser');
 const handleGetJotFormSurvey = require('./modules/getJotForm');
 const handleCloneJotFormSurvey = require('./modules/cloneJotForm');
 const handleGetActiveSurvey = require('./modules/getActiveSurvey');
+const handleCreateNewSurvey = require('./modules/createNewSurvey');
+const handleUpdateSurvey = require('./modules/updateSurvey');
 
 const PORT = process.env.PORT || 3001;
 
 mongoose.connect(process.env.MONGO_DB);
 const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", function () {
-  console.log("Mongoose is connected");
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+  console.log('Mongoose is connected');
 });
 
-app.get("/test", (req, res) => {
-  response.send("test request received");
+app.get('/test', (req, res) => {
+  res.send('test request received');
 });
-app.get("/survey", handleGetSurveyResults);
-app.get("/surveyId", handleGetSurveyIds);
-app.post("/survey", handlePostSurveyResults);
-app.delete("/survey/:id", handleDeleteSurveyResults);
-app.get("/user", handleGetUser);
-app.get("/jotform", handleGetJotFormSurvey);
-app.post("/jotform", handleCloneJotFormSurvey);
+app.get('/survey', handleGetSurveyResults);
+app.get('/surveyId', handleGetSurveyIds);
+app.post('/survey', handlePostSurveyResults);
+app.delete('/survey/:id', handleDeleteSurveyResults);
+app.get('/user', handleGetUser);
+app.get('/jotform', handleGetJotFormSurvey);
+app.post('/jotform', handleCloneJotFormSurvey);
 app.get('/active', handleGetActiveSurvey);
+app.post('/survey/create', handleCreateNewSurvey);
+app.put('/survey/:id', handleUpdateSurvey);
 
-
-app.listen(PORT, () => console.log("server is listening to port ", PORT));
+app.listen(PORT, () => console.log('server is listening to port ', PORT));

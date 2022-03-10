@@ -1,31 +1,32 @@
-'use strict'
+"use strict";
 
-const axios = require('axios');
-const Survey = require('./SurveyModel');
+const axios = require("axios");
+const Survey = require("./SurveyModel");
 
 async function handleCloneJotFormSurvey(request, response) {
-    try {
-        const templateFormID = 213535497610053; //ryan's form
-        const url = `https://api.jotform.com/form/${templateFormID}/clone?apiKey=${process.env.JOTFORM_API}`;
+  try {
+    // const currentSurvey =
+    const templateFormID = request.query.surveyID; //ryan's form
+    const url = `https://api.jotform.com/form/${templateFormID}/clone?apiKey=${process.env.JOTFORM_API}`;
 
-        const result = await axios.post(url);
+    const result = await axios.post(url);
 
-        const newSurveyData = {
-            surveyID: result.data.content.id,
-            surveyName: 'ryansForm',
-            subDomain: '@gmail.com', 
-            createdOn: String(new Date()).split(' ').splice(1, 3).join('-'),
-            submissionCount: 0,
-            results: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            active: true
-        }
+    const newSurveyData = {
+      surveyID: result.data.content.id,
+      surveyName: request.query.surveyName,
+      subDomain: request.query.subDomain,
+      createdOn: String(new Date()).split(" ").splice(1, 3).join("-"),
+      submissionCount: 0,
+      results: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      active: true,
+      notes: "insert notes here!",
+    };
 
-        const addedSurvey = await Survey.create(newSurveyData);
-        response.status(200).send(addedSurvey);
-
-    } catch (error) {
-        response.status(400).send(error);
-    }
+    const addedSurvey = await Survey.create(newSurveyData);
+    response.status(200).send(addedSurvey);
+  } catch (error) {
+    response.status(400).send(error);
+  }
 }
 
 module.exports = handleCloneJotFormSurvey;
